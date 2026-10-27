@@ -111,3 +111,13 @@ Ainda são evoluções editoriais: aprofundar o edital por subitem, ampliar banc
 27/10/2026 — Implementação inicial autorizada. Arquivos de entrada, conteúdo, núcleo, UI, CSS, ícone, manifesto, cache, build, testes e documentação criados em repositório vazio. Visual dark navy/ciano/azul e estado inicial zerado; progressão guiada pelos registros locais. Backend deliberadamente não simulado. Documentação foi adaptada de princípios do Almox, sem alterações no projeto de referência.
 
 Publicação e sincronização: ver seção final de verificação de entrega, acrescentada após retorno dos serviços.
+
+## 10. Verificação final de entrega
+
+27/10/2026 — Código completo salvo na branch `main` do GitHub. Commit inicial da implementação: `e1f0c66bbac03057bbd987f09df65dac5dc6a59d` (após bootstrap de README). Sincronização feita pela API de Git, com verificação do SHA esperado, sem force push. O contexto final é acrescentado em commit separado de documentação.
+
+Publicação privada confirmada pelo serviço com status `succeeded`: https://jarvis-estudante-inss.sageflea1025.chatgpt.site . O endereço exige entrar com a conta proprietária do ChatGPT; a tela de acesso foi observada no navegador de QA. Não se mudou o público para contornar o acesso. O HTML independente continua disponível sem login e pode ser servido em outra hospedagem. Dados locais não migram entre essas origens sem backup.
+
+Identificadores de publicação: projeto `appgprj_6ae0e8f23d988191ad105974fcc97b43`; versão `appgprj_6ae0e8f23d988191ad105974fcc97b43~appgver_335f41211bec819197ee4f55c52a4a4f`; deploy `appgdep_6ae0eeb4f85c81919a5d68f42c763cf5`. Commit de fonte da publicação: `f51a9aa7c9dbbf8dce7fb807b1a0a922a30c4b50`. Esses IDs são da hospedagem de demonstração, não Firebase/Cloudflare do usuário. Não modificar ou reutilizar em outro projeto.
+
+A fonte da hospedagem contém o mesmo runtime da entrega GitHub. O bloco final deste documento é posterior ao deploy e não muda o runtime. Backend remoto e expansão editorial continuam pendentes conforme seções 6 e 8.
