@@ -121,3 +121,7 @@ Publicação privada confirmada pelo serviço com status `succeeded`: https://ja
 Identificadores de publicação: projeto `appgprj_6ae0e8f23d988191ad105974fcc97b43`; versão `appgprj_6ae0e8f23d988191ad105974fcc97b43~appgver_335f41211bec819197ee4f55c52a4a4f`; deploy `appgdep_6ae0eeb4f85c81919a5d68f42c763cf5`. Commit de fonte da publicação: `f51a9aa7c9dbbf8dce7fb807b1a0a922a30c4b50`. Esses IDs são da hospedagem de demonstração, não Firebase/Cloudflare do usuário. Não modificar ou reutilizar em outro projeto.
 
 A fonte da hospedagem contém o mesmo runtime da entrega GitHub. O bloco final deste documento é posterior ao deploy e não muda o runtime. Backend remoto e expansão editorial continuam pendentes conforme seções 6 e 8.
+
+QA complementar concluído após a publicação: novo ciclo confirmado digitando NOVO; dashboard voltou ao Dia 1 com zero sessões/respostas, e o histórico mostrou as duas sessões anteriores arquivadas (zero no ciclo atual, duas no arquivo completo). O HTML independente foi aberto pelo servidor de prévia e renderizou corretamente o dashboard, sem dependências externas de CSS/JS. O teste físico de `file://` no celular continua dependente do navegador.
+
+Observação de distribuição: `.openai/hosting.json` pertence à cópia local e ao repositório da hospedagem de demonstração. Não foi copiado para o GitHub do usuário, para não vincular indevidamente futuros projetos a essa identidade. A branch GitHub contém o código estático, os testes e as instruções de build; a configuração Cloudflare futura será própria.
