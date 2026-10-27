@@ -1,0 +1,16 @@
+# Instruções obrigatórias do JARVIS Estudante
+
+Leia `CODEX.md` antes de alterar este projeto. Ele é o registro operacional de contexto; o Git contém o histórico exato de alterações. Leia também o código diretamente afetado: o documento não substitui verificar a implementação.
+
+- Trabalhe somente em `andersonx553-beep/Jarvis-estudante`. O `Almox.aqua` foi referência de instruções, somente leitura. Não o modifique nem copie credenciais, dados, regras ou configurações de seu banco.
+- Faça apenas o pedido autorizado. Evite refatorações, dependências e mudanças de arquitetura sem necessidade. Preserve interface, rotas e funções já testadas.
+- Use português do Brasil. Ícones em SVG, sem emojis na interface. Preserve os tokens de cores e os layouts aprovados.
+- Não apague histórico, respostas, notas ou ciclos para facilitar uma correção. Não altere identificadores existentes de tópicos ou questões. Alterações significativas de conteúdo exigem versão e preservação da interpretação anterior.
+- Não substitua o banco inteiro em uma sincronização. Eventos históricos são imutáveis; correções e diagnósticos geram novos eventos. Mudanças de esquema exigem migração versionada, backup e testes.
+- Não publique backups, dados reais, credenciais, chaves administrativas, `.env` ou tokens no Git. Nada de Firebase/Cloudflare é herdado de outro projeto.
+- O modo local deve continuar operando sem conta, internet ou IA. Nuvem é uma camada futura opcional, não condição para estudar.
+- Questões de aprendizagem em duplas; gabarito apenas após ambas as respostas. Itens autorais não são questões reais CEBRASPE. Simulados cumulativos não devem repetir itens para preencher tamanho.
+- Visto não é dominado. Não invente desempenho, percentuais de edital, notícias ou fontes. Novo ciclo começa zerado e preserva os anteriores.
+- Rode `npm test` e `npm run build`. Confira as telas em 390×844, 768×1024 e 1366×900 e verifique ausência de rolagem horizontal. Verifique teclado, foco, temas e backups conforme a mudança.
+- Antes de entregar, atualize o histórico no `CODEX.md`: pedido, arquivos, decisões, testes realmente executados, resultados e limitações. Não afirme testes ou publicações que não ocorreram.
+- Escopo aprovado já autoriza implementação e correções necessárias. Peça confirmação somente para nova decisão material ou ação destrutiva fora do pedido; não bloqueie trabalho reversível por burocracia.

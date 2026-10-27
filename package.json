@@ -1,0 +1,1 @@
+{"name":"jarvis-estudante","version":"1.0.0","private":true,"description":"Aplicativo local de estudos INSS CEBRASPE","scripts":{"build":"node tools/build.mjs","test":"node --test tests/core.test.cjs"},"engines":{"node":">=18"}}

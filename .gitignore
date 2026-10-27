@@ -1,0 +1,8 @@
+node_modules/
+dist/
+*.zip
+*.tar.gz
+tests/screenshots/
+*.backup.json
+.env*
+!.env.example
