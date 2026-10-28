@@ -38,7 +38,7 @@ npm test
 npm run build
 ```
 
-Validações locais concluídas:catálogo integral3.200/290,22testesNode passaram,compilação ebuild concluídos. QA de navegador:rodada de quatro,correção,rubrica,diagnóstico,encerramento,auditoria real,lacuna,simulado40itens,fadiga/concentração,backup real55eventos e reimportação sem duplicação. Telas conferidas nos3tamanhos com scrollWidth==clientWidth. Falha inicial causesundefined corrigida e recuperação verificada sem perda de respostas. Evidências e limites em docs/qa-v1.7.md. PR,merge e publicação serão registrados após confirmação. Os blocos abaixo preservam o histórico da implementação original.
+Validações locais concluídas:catálogo integral3.200/290,22testesNode passaram,compilação ebuild concluídos. QA de navegador:rodada de quatro,correção,rubrica,diagnóstico,encerramento,auditoria real,lacuna,simulado40itens,fadiga/concentração,backup real55eventos e reimportação sem duplicação. Telas conferidas nos3tamanhos com scrollWidth==clientWidth. Falha inicial causesundefined corrigida e recuperação verificada sem perda de respostas. Evidências e limites em docs/qa-v1.7.md. PR,merge e publicação confirmados na seção final desta entrega. Os blocos abaixo preservam o histórico da implementação original.
 
 ## 1. Objetivo e decisão atual do usuário
 
@@ -161,3 +161,11 @@ A fonte da hospedagem contém o mesmo runtime da entrega GitHub. O bloco final d
 QA complementar concluído após a publicação: novo ciclo confirmado digitando NOVO; dashboard voltou ao Dia 1 com zero sessões/respostas, e o histórico mostrou as duas sessões anteriores arquivadas (zero no ciclo atual, duas no arquivo completo). O HTML independente foi aberto pelo servidor de prévia e renderizou corretamente o dashboard, sem dependências externas de CSS/JS. O teste físico de `file://` no celular continua dependente do navegador.
 
 Observação de distribuição: `.openai/hosting.json` pertence à cópia local e ao repositório da hospedagem de demonstração. Não foi copiado para o GitHub do usuário, para não vincular indevidamente futuros projetos a essa identidade. A branch GitHub contém o código estático, os testes e as instruções de build; a configuração Cloudflare futura será própria.
+
+## Confirmação da entrega v1.7
+
+27/10/2026 (America/Fortaleza) — PR #1 criado, CI aprovado e merge concluído: https://github.com/andersonx553-beep/Jarvis-estudante/pull/1 . Commit da implementação: `674159eb849ae0f3204ef40fb2077f430dbaa7d5`; merge confirmado pelo GitHub: `a9c29d0418ae6a1721cfcc421f9b81bc0ae78edb`. CI run `40607026167`, job `122548958503`: compilação determinística,22testes ebuild aprovados. O PR alterou34arquivos, sem enviar configuração de hospedagem, credenciais, PDFs privados ou backups deQA.
+
+Publicação da versão2 confirmada com status succeeded em https://jarvis-estudante-inss.sageflea1025.chatgpt.site . O acesso continua privado da conta proprietária, sem mudança de público. Projeto `appgprj_6ae0e8f23d988191ad105974fcc97b43`; versão `appgprj_6ae0e8f23d988191ad105974fcc97b43~appgver_0e4115188aec8191a466ba3ffe1ed84a`; deploy `appgdep_6ae13db6b3fc819195ea4db99ffaf4dc`; fonte publicada `69f120fb18d358b5e04a657eb27b3012ca65c96d`. ArquivoHTMLindependente foi gerado e aberto emQA. A verificação de produção é o sucesso retornado pelo serviço; os fluxos do navegador foram testados na prévia e noHTMLindependente.
+
+Este registro documental é posterior ao deploy e não altera o runtime publicado. GitHub é o contexto operacional atualizado. Resultado:290pontos/42blocos/3.200itens autorais/360referências reais; progresso local e legado preservados. IAonline,Firebase e sincronização continuam como próxima etapa opcional. Revisão jurídica independente permanece pendente e não deve ser confundida com o CI aprovado.
