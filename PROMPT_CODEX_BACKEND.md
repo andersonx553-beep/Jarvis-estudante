@@ -1,3 +1,7 @@
+# Estado vigente em 28/10/2026
+
+Auth por e-mail/senha e sincronização opcional Firestore foram implementados na v1.8. Leia docs/FIREBASE.md, cloud-core.js, firebase-client.js, firebase-transport.js e firestore.rules antes de continuar. A ativação/publicação de regras no projeto real exige uma conta Firebase autorizada. Os requisitos abaixo são o contrato original; não recrie o que já existe. Google Sign-in, IA e sincronização de rascunhos permanecem fora desta entrega.
+
 # Prompt de continuação: backend opcional e integração de nuvem
 
 Trabalhe exclusivamente no repositório `andersonx553-beep/Jarvis-estudante`. Leia `AGENTS.md`, `CODEX.md`, `README.md`, `core.js` e os fluxos afetados antes de alterar. O frontend funcional já existe e foi aprovado visualmente: preserve-o. O projeto de referência `Almox.aqua` é somente leitura e está fora do escopo.

@@ -1,14 +1,22 @@
 {
   "name": "jarvis-estudante",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "private": true,
-  "description": "Estudos INSS locais com método v1.7, catálogo e banco autoral versionado",
+  "description": "Estudos INSS locais com m\u00e9todo v1.7, cat\u00e1logo e banco autoral versionado",
   "scripts": {
     "build": "node tools/build.mjs",
-    "test": "node --test tests/core.test.cjs tests/method.test.cjs",
-    "content": "python3 tools/compile_content.py"
+    "test": "node --test tests/core.test.cjs tests/method.test.cjs tests/cloud.test.cjs",
+    "content": "python3 tools/compile_content.py",
+    "test:firebase": "firebase emulators:exec --only auth,firestore --project demo-jarvis-estudante \"node --test --test-concurrency=1 tests/firestore.rules.test.cjs tests/firebase.integration.test.cjs\"",
+    "deploy:rules": "firebase deploy --only firestore:rules,firestore:indexes --project jarvis-estudante",
+    "deploy:hosting": "npm run build && firebase deploy --only hosting --project jarvis-estudante"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@firebase/rules-unit-testing": "5.0.1",
+    "firebase": "12.11.0",
+    "firebase-tools": "15.34.1"
   }
 }

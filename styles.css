@@ -11,3 +11,11 @@
 
 /* Expansão do método v1.7: preserva tokens e layouts existentes. */
 .source-ref{display:flex;gap:10px;align-items:flex-start;margin:10px 0;overflow-wrap:anywhere}.source-ref small{display:block;color:var(--muted);font-size:.75rem;margin-top:4px}.source-ref .icon{flex:none}.reading p{white-space:pre-line}.content-block{margin:12px 0 30px}.content-block h2{margin-bottom:16px}.schedule-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.schedule-grid .eyebrow{margin-bottom:12px}.method-flow{padding-left:22px}.method-flow li{padding:8px 0}.rubric{margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}.rubric summary{cursor:pointer;color:var(--cyan);font-weight:600}.rubric p{font-size:.8rem;margin:12px 0}.gap-panel{margin-bottom:20px;border-color:var(--amber)}.gap-panel p{margin:12px 0}.source-list small,.topic-row h3{overflow-wrap:anywhere}.sidebar nav{overflow-y:auto;min-height:0}.sidebar{overflow-y:auto}.sidebar-foot{flex-shrink:0}@media(max-width:900px){.schedule-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.schedule-grid{grid-template-columns:minmax(0,1fr)}.source-ref{font-size:.85rem}.content-block h2{font-size:1rem}.study-layout .tabs{overflow-x:auto;max-width:100%}}
+
+/* Conta opcional, com os mesmos tokens e tamanhos da interface existente. */
+.account-panel p,.account-panel [data-cloud-identity]{overflow-wrap:anywhere}
+.account-panel .actions{flex-wrap:wrap}
+.account-panel .actions .btn{max-width:100%;white-space:normal}
+.auth-error{color:var(--red);min-height:1.5em;overflow-wrap:anywhere}
+[hidden]{display:none!important}
+@media(max-width:600px){.account-panel .actions{display:grid;grid-template-columns:1fr}.account-panel .actions .btn{width:100%}}
