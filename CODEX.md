@@ -4,6 +4,14 @@
 
 Este arquivo preserva contexto, decisões, arquitetura e evidências de entrega. O histórico exato de diffs e commits continua no Git. Ele não substitui ler os trechos de código afetados antes de mudar uma função. Novas conversas devem começar por `AGENTS.md` e este documento.
 
+## Publicação no GitHub Pages — 28/10/2026
+
+Usuário mostrou Settings/Pages com site já público em https://andersonx553-beep.github.io/Jarvis-estudante/ e origem por branch. Leitura HTTP confirmou index antigo911bytes/Last-Modified28/10/202600:17:49UTC e firebase-client.js404. Não presumir que merge no código já atualizava Pages.
+
+Foi adicionado .github/workflows/pages.yml para npm ci →33testes →build com SDK local →3testes de distribuição →upload de dist/→deploy Pages. Trigger main com filtros de runtime e workflow_dispatch. Actions oficiais conferidas nas releases: configure-pagesv6,upload-pages-artifactv5,deploy-pagesv5. Ambiente github-pages, deploy somente main, permissões de escrita/OIDC restritas ao job de deploy; sem token pessoal, sem credencial Firebase. Não muda conteúdo, CSS, dados, regras ou o público do Site privado existente. Este Pages já era público por decisão/configuração do proprietário.
+
+README e docs/FIREBASE.md explicam a origem GitHub Actions, hostname autorizado no Auth e migração de progresso entre origens. O conector não dá administração para trocar a origem/proteções; se essa configuração bloquear, informar a etapa concreta ao usuário. Não alegar implantação só pela criação do workflow: conferir execução e conteúdo servido.
+
 ## Correção vigente v1.8.1 — SDK na própria hospedagem
 
 28/10/2026 — O usuário mostrou erro de download de módulo Firebase12.11.0 em www.gstatic.com e perguntou se precisava de domínio Cloudflare. Não é necessário mudar hospedagem para esta correção. A causa específica da falha de rede/CDN no aparelho não foi inferida; eliminamos os imports externos dos módulos SDK. Authentication/Firestore continuam usando suas APIs de rede. O usuário relatou ter publicado as regras; isso não foi verificado administrativamente.
