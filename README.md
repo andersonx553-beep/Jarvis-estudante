@@ -15,12 +15,14 @@ Todos os pontos da nova trilha começam pendentes. Marcas de estudo dos PDFs nã
 
 ## Executar e validar
 
-Node22+ e Python3 para preparação. Para testes Firebase, execute npm ci e use Java21+. O estudo local, o build e os testes do núcleo não precisam de dependências externas; nada disso é necessário no celular.
+Node22+ e Python3 para preparação. Para testes Firebase, execute npm ci e use Java21+. O build precisa de npm ci para empacotar o SDK Firebase junto ao app; os testes do núcleo não precisam dessas dependências; nada disso é necessário no celular.
 
 ```sh
+npm ci
 npm run content
 npm test
 npm run build
+npm run test:dist
 python3 -m http.server 8080 --directory dist
 ```
 
@@ -59,3 +61,5 @@ Leia AGENTS.md e a atualização vigente no começo de CODEX.md. Veja docs/FIREB
 ## Conta opcional
 
 Em Configurações e backup, conecte ao Firebase e crie/entre na sua conta por e-mail e senha. Cada conta tem um espaço separado no navegador. Transfira o histórico local somente após conferir o e-mail e baixar backup. A conta mantém uma cópia no aparelho e retoma o envio após reconexão. As regras precisam ser publicadas no projeto jarvis-estudante; esta configuração não é automática só por informar a chave pública.
+
+Correção v1.8.1: o SDK12.11.0 é instalado por npm e incorporado no cliente pelo esbuild, servido pela própria hospedagem. O app não importa módulos de gstatic.com. As APIs de Authentication/Firestore ainda exigem internet quando conectadas; o modo local permanece independente.

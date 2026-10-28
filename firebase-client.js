@@ -1,6 +1,6 @@
 /* SDK carregado somente ao solicitar a conexão. O estudo local funciona sem Firebase. */
 (function(){'use strict';
-const VERSION='12.11.0';let loading;
+let loading;
 const messages={
  'auth/invalid-credential':'E-mail ou senha inválidos.', 'auth/email-already-in-use':'Este e-mail já possui cadastro. Entre ou recupere a senha.',
  'auth/weak-password':'Escolha uma senha mais forte, com pelo menos 6 caracteres.', 'auth/password-does-not-meet-requirements':'A senha não atende à política configurada no Firebase.',
@@ -15,8 +15,8 @@ const messages={
 };
 function friendly(error){return messages[error.code]||error.message||'Não foi possível conectar. Tente novamente.';}
 async function load(){if(location.protocol==='file:')throw Error('Para usar a conta, abra o aplicativo em uma hospedagem HTTPS. O arquivo HTML continua funcionando no modo local.');if(loading)return loading;loading=(async()=>{
- const base='https://www.gstatic.com/firebasejs/'+VERSION+'/';
- const [A,H,F]=await Promise.all([import(base+'firebase-app.js'),import(base+'firebase-auth.js'),import(base+'firebase-firestore.js')]);
+ let sdk;try{sdk=await import('./firebase-sdk-entry.mjs');}catch{throw Error('Não foi possível carregar os arquivos do Firebase. Atualize o aplicativo e tente novamente; seus dados locais permanecem preservados.');}
+ const {A,H,F}=sdk;
  const emulator=window.JarvisFirebaseEmulators;const local=['localhost','127.0.0.1','terminal.local'].includes(location.hostname);
  if(emulator&&!local)throw Error('Emuladores só podem ser usados na prévia local.');
  const config=emulator?{...window.JarvisFirebaseConfig,projectId:'demo-jarvis-estudante',apiKey:'demo-api-key',authDomain:'localhost'}:window.JarvisFirebaseConfig;

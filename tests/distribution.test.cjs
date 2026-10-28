@@ -1,0 +1,5 @@
+const{test}=require('node:test');const assert=require('node:assert/strict');const{readFileSync}=require('node:fs');const{runInNewContext}=require('node:vm');
+const client=readFileSync('dist/firebase-client.js','utf8'),html=readFileSync('dist/jarvis-estudante.html','utf8');
+test('SDK distribuído no próprio arquivo, sem imports de CDN ou módulos restantes',()=>{assert.ok(client.length>100000);assert.doesNotMatch(client,/www\.gstatic\.com\/firebasejs\//);assert.doesNotMatch(client,/\bimport\s*\(/);assert.doesNotMatch(client,/firebase-sdk-entry\.mjs/);assert.match(client,/JarvisFirebase/);});
+test('HTML independente incorpora o mesmo cliente empacotado',()=>{assert.ok(html.includes(client.trim()));assert.doesNotMatch(html,/www\.gstatic\.com\/firebasejs\//);assert.doesNotMatch(html,/<script src="firebase-client\.js"/);});
+test('Abrir o cliente não conecta à rede e mantém modo local em file://',async()=>{const window={};runInNewContext(client,{window,location:{protocol:'file:'}});assert.equal(typeof window.JarvisFirebase.load,'function');await assert.rejects(window.JarvisFirebase.load(),/hospedagem HTTPS/);});

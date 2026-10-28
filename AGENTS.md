@@ -19,3 +19,5 @@ Leia `CODEX.md` antes de alterar este projeto. Ele é o registro operacional de 
 - Conteúdo v2: editar assets JSON em data/ e validar com python3 tools/compile_content.py. Não editar content.js gerado nem alterar content-legacy.js. Scripts editoriais organizam textos autorais; não devem multiplicar templates para inflar o banco.
 
 - Firebase v1.8: ler docs/FIREBASE.md e testar npm run test:firebase em projeto demo com Java21+. Nunca usar produção nos testes. Preservar separação por UID, transferência explícita e eventos somente criação; a configuração Web pública não é credencial administrativa. Não afirmar ativação remota sem verificação.
+
+- Distribuição v1.8.1: npm ci antes do build. O SDK Firebase é empacotado via esbuild; não reintroduzir imports de CDN. Rodar npm run build e npm run test:dist após mexer no carregamento. O HTML independente deve embutir o mesmo cliente.
