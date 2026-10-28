@@ -19,5 +19,9 @@ jobs:
           git diff --exit-code -- content.js docs/content-validation.json
       - name: Testes de persistência e método
         run: npm test
+      - name: Instalar dependências do empacotamento Firebase
+        run: npm ci
       - name: Gerar site e HTML independente
         run: npm run build
+      - name: Conferir distribuição sem dependência de CDN
+        run: npm run test:dist

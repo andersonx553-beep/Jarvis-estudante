@@ -13,13 +13,14 @@ Projeto exclusivo: `jarvis-estudante`. Configuração pública fornecida pelo pr
 
 ## Comandos
 
-Preparação: Node22+, npm e Java21+ para os emuladores. Java/Python/npm não são necessários no celular. O SDK12.11.0 é carregado da CDN oficial apenas ao conectar à conta; o modo local não depende dele.
+Preparação: Node22+, npm e Java21+ para os emuladores. Java/Python/npm não são necessários no celular. Na v1.8.1, o SDK12.11.0 vem do pacote npm e é incorporado em dist/firebase-client.js pelo esbuild. Não há import de módulos gstatic em runtime. O cliente inicializa os serviços somente ao conectar à conta; o modo local não depende da conexão. npm ci é obrigatório antes do build.
 
 ```sh
 npm ci
 npm test
 npm run test:firebase
 npm run build
+npm run test:dist
 npx firebase login
 npm run deploy:rules
 ```
@@ -54,3 +55,7 @@ Testes de unidade cobrem migração repetida, falha remota, offline/reload, conf
 O teste executa os arquivos de modo sequencial, pois a suíte de regras limpa o banco **demo** entre casos. Nunca apontar esses testes para produção. Os dados e usuários de teste permanecem apenas no emulador, sem envio ao projeto real.
 
 LocalStorage ainda tem quota e depende do navegador; exporte backups. Evite sessões paralelas em abas do mesmo espaço, pois o rascunho é compartilhado nessa origem. Não há Google Sign-in, IA online, apagamento de conta/dados, sync de rascunho, notificações ou certificação de produção. Não criar conta real automaticamente para testar. O banco editorial de3.200itens continua estático e não é copiado integralmente para o Firestore.
+
+## Correção do carregamento v1.8.1
+
+O erro `Failed to fetch dynamically imported module ...gstatic.com/firebasejs/...` ocorre antes das consultas ao Firestore. O SDK agora é autocontido no cliente e também no HTML independente; o build rejeita imports externos remanescentes. Não é necessário contratar domínio ou mudar para Cloudflare para esta correção. Atualize o app publicado (Ctrl+F5 se houver versão antiga em cache), sem apagar os dados do navegador. A publicação das regras foi relatada pelo proprietário, mas a sincronização real ainda precisa ser confirmada na conta. Os endpoints das APIs Firebase continuam precisando de conectividade.

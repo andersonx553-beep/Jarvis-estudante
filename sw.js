@@ -1,5 +1,5 @@
 /* Cache apenas dos arquivos públicos do app; somente arquivos públicos entram no cache deste service worker. */
-const VERSION='jarvis-shell-v1.8.0';
+const VERSION='jarvis-shell-v1.8.1';
 const FILES=['./','./index.html','./styles.css','./content-legacy.js','./content.js','./core.js','./cloud-core.js','./firebase-config.js','./firebase-transport.js','./firebase-client.js','./app.js','./assets/icon.svg','./manifest.webmanifest'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(VERSION).then(async c=>{await c.addAll(FILES);await self.skipWaiting();}));});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('jarvis-shell-')&&k!==VERSION).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});

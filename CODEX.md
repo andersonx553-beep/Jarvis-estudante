@@ -4,6 +4,15 @@
 
 Este arquivo preserva contexto, decisões, arquitetura e evidências de entrega. O histórico exato de diffs e commits continua no Git. Ele não substitui ler os trechos de código afetados antes de mudar uma função. Novas conversas devem começar por `AGENTS.md` e este documento.
 
+## Correção vigente v1.8.1 — SDK na própria hospedagem
+
+28/10/2026 — O usuário mostrou erro de download de módulo Firebase12.11.0 em www.gstatic.com e perguntou se precisava de domínio Cloudflare. Não é necessário mudar hospedagem para esta correção. A causa específica da falha de rede/CDN no aparelho não foi inferida; eliminamos os imports externos dos módulos SDK. Authentication/Firestore continuam usando suas APIs de rede. O usuário relatou ter publicado as regras; isso não foi verificado administrativamente.
+
+- firebase-sdk-entry.mjs seleciona funções oficiais de firebase/app,auth,firestore instaladas em npm. tools/build.mjs empacota firebase-client.js por esbuild0.28.2, IIFE browser ES2020, sem splitting e sem imports externos remanescentes. O build rejeita saída com imports. O cliente mantém inicialização sob demanda; SDK incorporado tem551.955bytes. A versão do SDK permanece12.11.0.
+- O HTML independente embute o mesmo cliente, mantendo o modo local de file://. Conta continua orientando HTTPS nesse modo. Novo SWcachev1.8.1 atualiza só arquivos públicos. Não mudou CSS, funções pedagógicas, banco, IDs, dados locais, migração, regras ou política de acesso.
+- npm ci passa a ser necessário antes do build; lockfile, README, docs/FIREBASE.md e CI atualizados. Não usar comandos antigos “build sem dependências” das seções históricas. Testes do núcleo continuam independentes da instalação.
+- Verificação local:33testes de núcleo/método/sync, build e3novos testes de distribuição passaram. A distribuição não contém import dinâmico ou URL gstatic/firebasejs, o HTML embute o mesmo cliente e carregar o cliente não inicializa rede no modo local. Navegador abriu Configurações → Conectar ao Firebase e exibiu Firebase disponível e formulário de entrada com o pacote local. Nenhuma senha/conta real foi usada nesse teste; não declarar sincronização de produção confirmada. O layout não foi alterado.
+
 ## Estado vigente v1.8 — Firebase opcional
 
 28/10/2026 — O proprietário pediu Firestore e autenticação e forneceu a configuração pública Web do projeto exclusivo `jarvis-estudante`. Autorização anterior de PR/merge permanece. Nenhuma senha, credencial administrativa ou acesso ao Almox foi usado. As seções antigas que descrevem Firebase como totalmente futuro são histórico; este estado prevalece.
