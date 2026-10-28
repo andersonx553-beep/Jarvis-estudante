@@ -1,0 +1,67 @@
+rules_version = '2';
+service cloud.firestore {
+ match /databases/{database}/documents {
+  function owner(uid) { return request.auth != null && request.auth.uid == uid; }
+  function text(v,n) { return v is string && v.size() <= n; }
+  function checks(v) { return v is list && v.size() == 4 && v[0] is bool && v[1] is bool && v[2] is bool && v[3] is bool; }
+  function answer(v) { return v == null || v is bool; }
+  function topic(e) { return text(e.topic,128) && e.topic.size() > 0; }
+  function snapshot(e) {
+   return !('questionSnapshot' in e) || (e.questionSnapshot is map
+    && e.questionSnapshot.keys().hasOnly(['id','text','answer','explanation','version','kind','sourceRef'])
+    && e.questionSnapshot.id == e.qid && text(e.questionSnapshot.text,20000)
+    && text(e.questionSnapshot.explanation,20000) && e.questionSnapshot.answer is bool
+    && e.questionSnapshot.version is int && e.questionSnapshot.version > 0);
+  }
+  function payload(e) {
+   return (e.type == 'read' && topic(e))
+    || (e.type == 'attempt' && topic(e) && text(e.qid,128) && answer(e.answer)
+     && e.confidence in ['seguro','duvida','chute'] && text(e.reason,4000) && text(e.cause,100)
+     && text(e.round,128) && snapshot(e))
+    || (e.type == 'note' && topic(e) && text(e.text,10000))
+    || (e.type == 'evidence' && topic(e) && checks(e.checks))
+    || (e.type == 'review' && topic(e))
+    || (e.type == 'session' && text(e.title,500) && e.seconds is number && e.seconds >= 0 && e.seconds <= 31536000
+     && (!('attemptIds' in e) || (e.attemptIds is list && e.attemptIds.size() <= 3200))
+     && (!('summary' in e) || (e.summary is map && e.summary.size() <= 20)))
+    || (e.type == 'cycle' && text(e.next,128) && e.next.size() > 0)
+    || (e.type == 'coverage' && text(e.item,200) && e.done is bool)
+    || (e.type == 'diagnosis' && text(e.attempt,128) && text(e.cause,100))
+    || (e.type == 'rubric' && text(e.attempt,128) && checks(e.checks))
+    || (e.type == 'gap' && topic(e) && text(e.key,300) && e.open is bool && text(e.text,10000))
+    || (e.type == 'audit' && topic(e) && text(e.ref,128) && e.coverage in ['ensinada','parcial','lacuna'] && text(e.reason,4000) && answer(e.answer))
+    || (e.type == 'sim-evaluation' && text(e.session,128) && e.fatigue in [1,2,3,4,5] && e.concentration in [1,2,3,4,5]);
+  }
+  function validEvent(id) {
+   let d = request.resource.data;
+   let e = d.event;
+   return d.keys().hasOnly(['schema','event','receivedAt']) && d.schema == 1
+    && d.receivedAt == request.time && e is map
+    && e.keys().hasAll(['id','at','type','cycle'])
+    && e.keys().hasOnly(['id','at','type','cycle','topic','qid','answer','confidence','reason','cause','round','session','contentVersion','methodVersion','questionVersion','questionSnapshot','text','checks','title','seconds','mode','attemptIds','decision','scoring','summary','next','item','done','attempt','key','open','ref','coverage','fatigue','concentration'])
+    && id.matches('^[A-Za-z0-9_-]{1,128}$') && e.id == id
+    && text(e.at,40) && e.at.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}T.*Z$')
+    && text(e.cycle,128) && e.cycle.size() > 0 && payload(e);
+  }
+  match /users/{uid}/events/{id} {
+   allow get, list: if owner(uid);
+   allow create: if owner(uid) && validEvent(id);
+   allow update, delete: if false;
+  }
+  match /users/{uid}/settings/preferences {
+   allow get: if owner(uid);
+   allow create, update: if owner(uid)
+    && request.resource.data.keys().hasOnly(['schema','prefs','updatedAt'])
+    && request.resource.data.schema == 1 && request.resource.data.updatedAt == request.time
+    && request.resource.data.prefs is map
+    && request.resource.data.prefs.keys().hasAll(['name','theme','font','goal'])
+    && request.resource.data.prefs.keys().hasOnly(['name','theme','font','goal'])
+    && text(request.resource.data.prefs.name,80)
+    && request.resource.data.prefs.theme in ['light','dark']
+    && request.resource.data.prefs.font in [16,18,20]
+    && request.resource.data.prefs.goal in [15,30,45,60,90];
+   allow delete: if false;
+  }
+  match /{document=**} { allow read, write: if false; }
+ }
+}

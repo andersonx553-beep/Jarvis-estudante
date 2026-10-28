@@ -17,3 +17,5 @@ Leia `CODEX.md` antes de alterar este projeto. Ele é o registro operacional de 
 
 - Método vigente: v1.7 Cara a Cara com a Banca. Teoria antes da cobrança, auditoria por questões reais, lacunas por subtema e domínio funcional com rubrica de autocorreção. Nunca inferir compreensão só pela extensão da justificativa.
 - Conteúdo v2: editar assets JSON em data/ e validar com python3 tools/compile_content.py. Não editar content.js gerado nem alterar content-legacy.js. Scripts editoriais organizam textos autorais; não devem multiplicar templates para inflar o banco.
+
+- Firebase v1.8: ler docs/FIREBASE.md e testar npm run test:firebase em projeto demo com Java21+. Nunca usar produção nos testes. Preservar separação por UID, transferência explícita e eventos somente criação; a configuração Web pública não é credencial administrativa. Não afirmar ativação remota sem verificação.

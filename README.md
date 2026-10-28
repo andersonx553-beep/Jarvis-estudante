@@ -1,6 +1,6 @@
 # JARVIS Estudante • INSS / CEBRASPE
 
-Aplicativo responsivo e local, sem dependências de runtime e sem login. Método v1.7 Cara a Cara com a Banca, catálogo de 290 pontos em 42 blocos e banco de 3.200 questões autorais. Interface em HTML/CSS/JavaScript; Python organiza e valida os assets editoriais.
+Aplicativo responsivo com modo local independente e conta opcional Firebase Authentication/Firestore (v1.8). Método v1.7 Cara a Cara com a Banca, catálogo de 290 pontos em 42 blocos e banco de 3.200 questões autorais. Interface em HTML/CSS/JavaScript; Python organiza e valida os assets editoriais.
 
 ## Começar
 
@@ -15,7 +15,7 @@ Todos os pontos da nova trilha começam pendentes. Marcas de estudo dos PDFs nã
 
 ## Executar e validar
 
-Node18+ e Python3 para preparação. Não precisa de npm install nem Python no celular.
+Node22+ e Python3 para preparação. Para testes Firebase, execute npm ci e use Java21+. O estudo local, o build e os testes do núcleo não precisam de dependências externas; nada disso é necessário no celular.
 
 ```sh
 npm run content
@@ -46,12 +46,16 @@ Respostas novas guardam texto, gabarito, explicação e versão respondida. O co
 
 O banco passou por preparação editorial porIA e checagem de fontes; não foi auditado por revisor jurídico independente. A base curricular é o edital histórico2022 retificado e o PDF fornecido, não uma afirmação sobre novo edital. Anulações e mudanças legislativas exigem cuidado nos itens reais; sua auditoria não gera automaticamente pontuação com gabarito histórico.
 
-O app não pesquisa notícias nem atualiza leis sozinho. Não há agente deIA online, Firebase, login, sincronização ou backend remoto. O estudo local funciona sem esses serviços. Justificativas não recebem análise semântica automática. A teoria inicial de um ponto não é promessa de esgotar todas as nuances jurídicas.
+O app não pesquisa notícias nem atualiza leis sozinho. Não há agente deIA online. Firebase permite conta e sincronização opcionais após habilitar Authentication/Firestore e publicar as regras do projeto. O estudo local funciona sem esses serviços. Justificativas não recebem análise semântica automática. A teoria inicial de um ponto não é promessa de esgotar todas as nuances jurídicas.
 
 LocalStorage tem limites e pode ser apagado pelo navegador. Falhas de gravação são informadas e os eventos em memória permanecem exportáveis. Exporte backups regularmente. Cronômetro mede tempo decorrido, inclusive pausas. Instalação PWA e armazenamento em file:// dependem do navegador.
 
 ## Hospedagem e continuidade
 
-A pasta dist é estática e compatível com hospedagem HTTPS. A navegação usa hash. O cache offline só armazena arquivos públicos do app, não envia respostas. GitHubPages não está automaticamente habilitado.
+A pasta dist é estática e compatível com hospedagem HTTPS. A navegação usa hash. O service worker só armazena arquivos públicos. Respostas/notas são enviadas ao Firestore apenas no espaço da conta conectado. GitHubPages não está automaticamente habilitado.
 
-Leia AGENTS.md e a atualização vigente no começo de CODEX.md. PROMPT_CODEX_BACKEND.md orienta a futura integração de nuvem preservando o modo local. Não copiar a identidade .openai da demonstração para outro projeto.
+Leia AGENTS.md e a atualização vigente no começo de CODEX.md. Veja docs/FIREBASE.md para ativação, regras, comandos, transferência do progresso e limites. PROMPT_CODEX_BACKEND.md registra o contrato de preservação para próximas evoluções. Não copiar a identidade .openai da demonstração para outro projeto.
+
+## Conta opcional
+
+Em Configurações e backup, conecte ao Firebase e crie/entre na sua conta por e-mail e senha. Cada conta tem um espaço separado no navegador. Transfira o histórico local somente após conferir o e-mail e baixar backup. A conta mantém uma cópia no aparelho e retoma o envio após reconexão. As regras precisam ser publicadas no projeto jarvis-estudante; esta configuração não é automática só por informar a chave pública.

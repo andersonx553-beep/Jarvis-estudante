@@ -9,3 +9,7 @@ tests/screenshots/
 
 __pycache__/
 *.pyc
+
+.firebase/
+*-debug.log
+*-debug.log.*
