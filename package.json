@@ -1,1 +1,14 @@
-{"name":"jarvis-estudante","version":"1.0.0","private":true,"description":"Aplicativo local de estudos INSS CEBRASPE","scripts":{"build":"node tools/build.mjs","test":"node --test tests/core.test.cjs"},"engines":{"node":">=18"}}
+{
+  "name": "jarvis-estudante",
+  "version": "1.7.0",
+  "private": true,
+  "description": "Estudos INSS locais com método v1.7, catálogo e banco autoral versionado",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "test": "node --test tests/core.test.cjs tests/method.test.cjs",
+    "content": "python3 tools/compile_content.py"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

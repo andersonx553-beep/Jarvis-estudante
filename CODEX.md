@@ -4,6 +4,42 @@
 
 Este arquivo preserva contexto, decisões, arquitetura e evidências de entrega. O histórico exato de diffs e commits continua no Git. Ele não substitui ler os trechos de código afetados antes de mudar uma função. Novas conversas devem começar por `AGENTS.md` e este documento.
 
+## Estado vigente da expansão v1.7
+
+Atualização autorizada em 27/10/2026: o usuário aprovou integrar o planejamento completo ao aplicativo, usar Python, abrir PR e fazer merge no GitHub. O DOCX JARVIS_Metodo_Modelo_Estrategias_Oficial_v1.7_Cara_a_Cara_com_a_Banca.docx é a fonte principal do método. O PDF Assuntos_vistos_INSS_atualizado_Dia16(1).pdf fornece matérias/blocos; todas as marcas de progresso são ignoradas para o novo ciclo. Os dois anexos foram lidos integralmente. Trechos históricos abaixo descrevem a v1 inicial e não prevalecem sobre este estado.
+
+- Método atual: teoria suficiente e mapa de subtemas → exemplos → quatro questões juntas na aprendizagem → correção das quatro → diagnóstico → questões reais → auditoria da teoria → lacunas → aprofundamento → consolidação. Duplas só permanecem na navegação de simulado ou em rascunho legado recuperado.
+- Catálogo v2: 290 pontos principais em42blocos, plano data/curriculum-plan.json, todos inicialmente pendentes;3.200itens autorais com quota por assunto. O catálogo de285pontos anterior ganhou seis detalhamentos líquidos em delegação e deslocou LibreOffice para suplemento. Não são290itens literalmente numerados no edital.
+- Distribuição: Previdenciário1.800; Português360; Constitucional320; Administrativo320; Informática160; RLM120; Ética120. Fixação800, treino1.600, reserva800. Todo assunto mantém≥4itens de treino. Reserva só entra no treino após exposição em avaliação. O banco não é uma meta diária e não prevê a distribuição de prova futura.
+- Cada aula tem mapa, teoria, exemplo, comparação, limites e fontes; as explicações das questões ampliam a teoria. Dificuldade é editorial provisória. Há conferência porIA e fontes primárias; não existe auditoria jurídica independente ou promessa de esgotamento do direito vigente.
+- data/official-index.json preserva360referências de INSS2016,2022 e Guarulhos,15anuladas. Gabarito histórico não é silenciosamente tratado como regra atual. O app linka cadernos e registra auditoria; não hospeda reprodução integral dessas provas. A reaplicação não é um terceiro concurso independente.
+- Respostas novas armazenam questionSnapshot com texto/gabarito/explicação/versão. content-legacy.js mantém39aulas/156itens originais sem mudarIDs ou respostas. O catálogo ativo usa IDs v17 distintos; progresso antigo não preenche a trilha nova. Ao abrir a expansão com eventos apenas legados e sem sessão em andamento, é acrescentado um evento de novo ciclo autorizado, preservando todos os anteriores; rascunho legado adia essa transição. Nenhum dado pessoal ou backup foi enviado aoGitHub.
+- Tipos novos de evento: rubric,gap,audit,sim-evaluation. Esquema de backup continua1com validação ampliada aditiva, teto de100.000eventos e importação de até64MB. A quota efetiva de localStorage continua dependendo do navegador. Nenhum evento antigo é apagado. Marcações de rubrica e cobertura são autodeclaradas, não avaliação semântica porIA. Extensão de justificativa deixou de servir de evidência de domínio na trilha nova. Regra antiga permanece apenas na interpretação legada.
+- Domínio funcional novo usa leitura, até8itens distintos conforme disponibilidade de treino, pelo menos2rodadas,80%auxiliar, rubricas completas, cobertura dos subtemas, ausência de lacunas abertas e quatro evidências finais. São heurísticas transparentes; memorização de pares pode enganar métricas, portanto não afirmar domínio objetivo certificado.
+- Sábado:simulado cumulativo; domingo:descanso. Plano semanal em #plan, com Previdenciário aprender/consolidar/aplicar em três dias, Português/Administrativo e reforçoConstitucional. Sugestão automática40–120 só aumenta10quando simulado anterior≥40teve80%+, fadiga≤2e concentração≥4nas escalas1–5; ausência de autoavaliação mantém volume. Critérios auxiliares são propostas pedagógicas configuráveis futuras, não regras da banca.
+- Pesquisador offline não executa busca. O app diz “não verificado nesta sessão” em vez de inventar notícias. AgenteIA online, análise semântica, Firebase e sincronização permanecem fora desta entrega; modo local é independente desses serviços.
+- Fontes recentes conferidas durante produção incluem alterações em salário-maternidade, pensãoZika,SeguroDefeso,acumulação de cargos e vencimentoDAE. Fontes e limites específicos ficam nos metadados dos assets. Não generalizar além do dispositivo e da vigência descritos.
+
+### Arquivos da expansão
+
+- data/{prev-base,prev-beneficios,prev-especiais,const-adm,port-rlm,info-etica}.json: assets editoriais, cada enunciado e correção redigidos; fontes e localizadores. tools/editorial/*.py reconstroem esses assets e validam suas quotas; não são geradores de milhares por troca de nomes.
+- tools/compile_content.py:confere integralidade,quotas,IDs,textos exatos únicos,tipos,fontes e reserva; gera content.js e docs/content-validation.json. Não altera o legado nem produz novas assertivas.
+- core.js:índices emMap,compatibilidade de backup,snapshot,domínio por rubrica,cobertura,lacunas,reserva,dificuldade e sugestão de volume de simulado.
+- app.js:#plan,#real,quatro itens,modo de auditoria real,rubrica,diagnóstico de fadiga/concentração e resumo de sessão; interface e ações existentes preservadas.
+- index.html/build/sw:carregamento do legado antes de conteúdov2,HTMLindependente e novo cacheversionado. styles.css:adições responsivas sem trocar tokens.
+- AGENTS.md,README.md,PROMPT_CODEX_BACKEND.md e este arquivo:regras atuais e instruções de execução. GitHub não recebe .openai/hosting.json.
+- .github/workflows/checks.yml:CI de leitura, compilação determinística, testes e build em PR e pushmain, sem acesso a segredos nem publicação automática.
+
+### Execução e evidências desta expansão
+
+```sh
+npm run content
+npm test
+npm run build
+```
+
+Validações locais concluídas:catálogo integral3.200/290,22testesNode passaram,compilação ebuild concluídos. QA de navegador:rodada de quatro,correção,rubrica,diagnóstico,encerramento,auditoria real,lacuna,simulado40itens,fadiga/concentração,backup real55eventos e reimportação sem duplicação. Telas conferidas nos3tamanhos com scrollWidth==clientWidth. Falha inicial causesundefined corrigida e recuperação verificada sem perda de respostas. Evidências e limites em docs/qa-v1.7.md. PR,merge e publicação serão registrados após confirmação. Os blocos abaixo preservam o histórico da implementação original.
+
 ## 1. Objetivo e decisão atual do usuário
 
 Criar um aplicativo profissional de preparação INSS, foco CEBRASPE, fiel às dez pranchas visuais aprovadas, responsivo no celular/tablet/computador e funcional com progresso local. O usuário autorizou implementar também as funções viáveis sem backend, pediu código no GitHub, contexto em CODEX.md e um prompt separado para backend futuro. Novo ciclo começa do zero. Não restaurar nem pré-preencher o Dia 16.

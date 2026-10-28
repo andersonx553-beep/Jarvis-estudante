@@ -1,48 +1,57 @@
 # JARVIS Estudante • INSS / CEBRASPE
 
-Aplicativo responsivo, sem dependências, com conteúdo introdutório autoral e estudo orientado por evidências. Funciona no navegador, com dados locais. O código usa HTML, CSS e JavaScript; Java e Python não são necessários para executar o aplicativo.
+Aplicativo responsivo e local, sem dependências de runtime e sem login. Método v1.7 Cara a Cara com a Banca, catálogo de 290 pontos em 42 blocos e banco de 3.200 questões autorais. Interface em HTML/CSS/JavaScript; Python organiza e valida os assets editoriais.
 
 ## Começar
 
-1. Abra o endereço publicado ou execute o projeto por um servidor estático.
-2. Toque em **Começar Dia 1**, leia a aula, avance aos exemplos e responda às duas questões.
-3. Corrija, classifique erros e encerre a sessão para registrar o fechamento.
-4. Exporte o backup em **Configurações e backup** regularmente.
+1. Abra a versão publicada ou execute por servidor estático.
+2. Toque em **Começar estudo**, leia a teoria e os exemplos.
+3. Registre a leitura e responda **quatro questões juntas**. Gabarito somente após o conjunto.
+4. Corrija, confira a rubrica da justificativa e classifique as causas dos erros.
+5. Confronte a base com as referências reais em **Cara a Cara com a Banca**. Registre e aprofunde lacunas.
+6. Encerre a sessão; histórico e resumo ficam no aparelho. Exporte uma cópia em **Configurações e backup**.
 
-O aplicativo inicia com zero respostas, sessões e tópicos vistos. Não carrega progresso histórico do candidato. Os PDFs originais forneceram o método e a estrutura curricular, não resultados pré-preenchidos.
+Todos os pontos da nova trilha começam pendentes. Marcas de estudo dos PDFs não são importadas. O catálogo introdutório anterior permanece em arquivo para que backups, rascunhos e respostas antigos continuem legíveis. Um novo ciclo preserva todo o histórico.
 
-## Executar e verificar
+## Executar e validar
 
-Requer Node 18+ somente para build e testes. Não é necessário `npm install`.
+Node18+ e Python3 para preparação. Não precisa de npm install nem Python no celular.
 
 ```sh
+npm run content
 npm test
 npm run build
 python3 -m http.server 8080 --directory dist
 ```
 
-Abra `http://localhost:8080`. Para usar sem servidor, abra `dist/jarvis-estudante.html`, que reúne tudo em um arquivo. A disponibilidade de armazenamento em `file://` depende do navegador: prefira uma origem HTTPS estável e use backup para trocar de endereço ou aparelho. O progresso não fica embutido no HTML.
+O compilador valida quotas, IDs, enunciados únicos, gabaritos booleanos e presença de fontes; não cria enunciados nem substitui revisão editorial. Os scripts em tools/editorial reconstroem assets a partir de textos redigidos individualmente. Depois de editar um asset, compile antes do build.
 
-## Funções
+Use localhost:8080 ou o HTML independente gerado em dist/jarvis-estudante.html. No celular, prefira uma origem HTTPS estável: dados do navegador não ficam embutidos no HTML e não migram entre endereços sem backup.
 
-- Dashboard sem números fictícios; trilha das sete disciplinas.
-- 39 módulos introdutórios, 156 itens autorais, fontes e checklist de aprofundamentos.
-- Teoria, exemplos, comparações, limites, oito passos de raciocínio e notas versionadas.
-- Questões em duplas, confiança, justificativa, correção e diagnóstico.
-- Banco de erros, revisões em 1/3/7/14 dias e recomendação por prioridade/desempenho.
-- Simulados cumulativos, cronômetro, itens em branco, pontuação simples ou líquida configurável.
-- Mapa de evidências, histórico entre ciclos, preferências e leitura em voz alta quando suportada.
-- Exportação JSON, importação por mesclagem sem exclusão e resumo Markdown de continuidade.
-- Temas, ajuste de texto, navegação por teclado e cache offline após acesso inicial em origem compatível.
+## Conteúdo e método
 
-## Limites reais
+- Previdenciário1.800; Português360; Administrativo320; Constitucional320; Informática160; RLM120; Ética120.
+- 800 itens de fixação,1.600 de treino e800 reservados para avaliação. A reserva fica fora do treino até exposição em avaliação.
+- 360 referências reais INSS2016,2022 e Guarulhos, com links para cadernos, microtemas e gabarito histórico. Não são reprodução integral de questões, nem declaração de gabarito atual.
+- Cada ponto inclui teoria, exemplos, diferenças, limites, fontes e questões. Os temas amplos seguem exigindo aprofundamento e auditoria pela cobrança real.
+- MicrosoftOffice no núcleo do edital-base retificado; LibreOffice preservado como repertório suplementar histórico.
+- Rodadas de quatro na aprendizagem; simulados navegam em pares e só corrigem ao encerrar.
+- Visto, consolidação e domínio funcional separados. A rubrica é autoavaliação: caracteres digitados não provam compreensão.
+- Revisões1/3/7/14dias e recuperação de lacunas. Sábado com simulado e análise; domingo descanso na referência semanal.
+- Progressão opcional40–120 considera desempenho, fadiga e concentração registrados; não cresce pelo calendário.
 
-Os módulos são introduções autorais; não são uma apostila exaustiva, nem reprodução de questões oficiais. A referência é o edital histórico de 2022. A lista de aprofundamentos registra o restante a estudar; não inventa cobertura integral de edital vigente. Consulte o texto legal e as versões dos programas aplicáveis. O aplicativo não pesquisa notícias nem atualiza legislação automaticamente. Justificativas são guardadas, mas não avaliadas semanticamente por IA.
+## Preservação e limites
 
-Dados do navegador podem ser apagados pelo usuário ou pelo sistema; exporte backups. Preferências são locais e mantidas ao importar. Uma importação mescla eventos e pode selecionar o ciclo mais recente importado. Não há Firebase, login, sincronização ou backend remoto nesta versão. O cronômetro mede tempo decorrido da atividade, incluindo eventual pausa entre acessos.
+Respostas novas guardam texto, gabarito, explicação e versão respondida. O conteúdo legado permanece imutável para interpretar eventos antigos. Notas, diagnósticos, auditorias e rubricas geram eventos, sem apagar respostas. Backups JSON são mesclados porID; preferências locais são mantidas.
 
-## Hospedar depois
+O banco passou por preparação editorial porIA e checagem de fontes; não foi auditado por revisor jurídico independente. A base curricular é o edital histórico2022 retificado e o PDF fornecido, não uma afirmação sobre novo edital. Anulações e mudanças legislativas exigem cuidado nos itens reais; sua auditoria não gera automaticamente pontuação com gabarito histórico.
 
-`dist/` é a pasta estática pronta para Cloudflare Pages, Workers Assets ou GitHub Pages. Não há rotas de servidor: a navegação usa hash. O service worker só funciona em contextos permitidos pelo navegador. O ícone SVG é fornecido; a oferta de instalação varia por plataforma. Não há implantação automática no GitHub Pages nesta versão.
+O app não pesquisa notícias nem atualiza leis sozinho. Não há agente deIA online, Firebase, login, sincronização ou backend remoto. O estudo local funciona sem esses serviços. Justificativas não recebem análise semântica automática. A teoria inicial de um ponto não é promessa de esgotar todas as nuances jurídicas.
 
-Leia `CODEX.md`, `AGENTS.md` e `PROMPT_CODEX_BACKEND.md` para continuidade e regras de preservação.
+LocalStorage tem limites e pode ser apagado pelo navegador. Falhas de gravação são informadas e os eventos em memória permanecem exportáveis. Exporte backups regularmente. Cronômetro mede tempo decorrido, inclusive pausas. Instalação PWA e armazenamento em file:// dependem do navegador.
+
+## Hospedagem e continuidade
+
+A pasta dist é estática e compatível com hospedagem HTTPS. A navegação usa hash. O cache offline só armazena arquivos públicos do app, não envia respostas. GitHubPages não está automaticamente habilitado.
+
+Leia AGENTS.md e a atualização vigente no começo de CODEX.md. PROMPT_CODEX_BACKEND.md orienta a futura integração de nuvem preservando o modo local. Não copiar a identidade .openai da demonstração para outro projeto.

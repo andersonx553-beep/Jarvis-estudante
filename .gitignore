@@ -6,3 +6,6 @@ tests/screenshots/
 *.backup.json
 .env*
 !.env.example
+
+__pycache__/
+*.pyc
