@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-28",
+  "scope": "Auditoria técnica com fixtures em memória; não é auditoria jurídica nem teste da conta real",
+  "runtimeHashes": {
+    "app.js": "76d45c1f0c355f153add5d5c33d4539d272ecdf859dc41d2f5f4ba377d92a24c",
+    "core.js": "c296971846513364fbbbb8a4fcd26bf1f4a67925e532254d2ebee75b4b80b31e",
+    "cloud-core.js": "1e019479d9479faaea74e6fa21843a1e396d518d66956944a5e37d1695381035",
+    "firestore.rules": "d6c8a4342d83b8a6cefff03ff3488f68ea000ed561ab04314e6fcd19806a87ba"
+  },
+  "inventory": {
+    "lessons": 290,
+    "blocksByDiscipline": 42,
+    "uniqueBlockTitles": 41,
+    "questions": 3200,
+    "uniqueNormalizedTexts": 3200,
+    "missingHttpsSources": 0,
+    "subtopics": 2324,
+    "legacyQuestions": 156,
+    "realReferences": 360,
+    "disciplines": [
+      {
+        "id": "prev",
+        "lessons": 130,
+        "questions": 1800
+      },
+      {
+        "id": "const",
+        "lessons": 26,
+        "questions": 320
+      },
+      {
+        "id": "port",
+        "lessons": 27,
+        "questions": 360
+      },
+      {
+        "id": "adm",
+        "lessons": 54,
+        "questions": 320
+      },
+      {
+        "id": "rlm",
+        "lessons": 18,
+        "questions": 120
+      },
+      {
+        "id": "info",
+        "lessons": 23,
+        "questions": 160
+      },
+      {
+        "id": "etica",
+        "lessons": 12,
+        "questions": 120
+      }
+    ]
+  },
+  "findings": {
+    "sameBrowserCycle": {
+      "confirmed": true,
+      "draftCycle": "inicial",
+      "storeCycle": "novo"
+    },
+    "pendingCycleBackup": {
+      "confirmed": true,
+      "pending": 1,
+      "exportedCycles": 0,
+      "restoredActiveCycle": "inicial"
+    },
+    "silentBackupConflict": {
+      "confirmed": true,
+      "keptOriginal": true
+    },
+    "importedSourceProtocol": {
+      "confirmed": true,
+      "acceptedNonHttps": true,
+      "rendererEscapesButDoesNotRestrictProtocol": true,
+      "executionTested": false
+    },
+    "mixedOpenGap": {
+      "confirmed": true,
+      "quizStarted": true,
+      "notices": []
+    }
+  },
+  "continuityNewlinesCorrect": true
+}

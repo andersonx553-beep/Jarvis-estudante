@@ -4,6 +4,16 @@
 
 Este arquivo preserva contexto, decisões, arquitetura e evidências de entrega. O histórico exato de diffs e commits continua no Git. Ele não substitui ler os trechos de código afetados antes de mudar uma função. Novas conversas devem começar por `AGENTS.md` e este documento.
 
+## Auditoria técnica solicitada em 28/10/2026
+
+Relatório completo em docs/AUDITORIA-2026-10-28.md, evidências em docs/audit-evidence-2026-10-28.json, reprodução sem rede/produção por node tools/audit_app.cjs. Confirmados290pontos,42blocos por disciplina (41títulos únicos),3.200enunciados normalizados distintos/fontesHTTPS,2.324entradas de subtemas,156itens legados e360referências reais. Isso não prova mérito jurídico/ausência de semelhança semântica.44testes existentes aprovados não cobrem todos os casos.
+
+Cinco pendências reproduzidas: A01ciclo pode mudar entre abas durante rascunho; A02backup não inclui eventos de ciclo remoto ainda em meta.pendingCycles; A03treino misto confere lacuna só no primeiro tópico; A04backup com mesmo ID/payload divergente é ignorado sem aviso (original preservado); A05snapshot importado aceita URL de fonte nãoHTTPS e o renderer não restringe protocolo (sem exploração executada). Nenhuma foi corrigida silenciosamente no pedido de auditoria. Exportação de continuidade tem quebras de linha corretas; suspeita inicial descartada por reprodução.
+
+PR#4 do Pages mesclado em5214364e3fa41da5ba0a67ddb6f9a84988414a4b após CI aprovada. Execução40690929936: build/upload passou, deploy122825388815 falhou antes dos steps/logs. Causa detalhada indisponível, não presumir qual proteção. Pages permanece antigo; proprietário deve selecionar SourceGitHub Actions e executar workflow; conector não tem administração para essa configuração. Não confundir com Site privado v1.8.1 já publicado. A falha não é rejeição de aprovação automática.
+
+Faltam confirmar sincronização real em dois aparelhos e configuração/cotas de produção; aprofundar/revisar conteúdo e calibrar dificuldade; agenteIAconversacional/pesquisa online não existem; agenda é referência semanal/recomendação local. Priorizar publicação, A01/A02, demais achados, validação real, revisão editorial e só então expansão opcional deIA. Não alterar IDs, dados ou regras como atalho.
+
 ## Publicação no GitHub Pages — 28/10/2026
 
 Usuário mostrou Settings/Pages com site já público em https://andersonx553-beep.github.io/Jarvis-estudante/ e origem por branch. Leitura HTTP confirmou index antigo911bytes/Last-Modified28/10/202600:17:49UTC e firebase-client.js404. Não presumir que merge no código já atualizava Pages.
