@@ -29,6 +29,9 @@ Prepare `dist/` para Pages ou Worker Assets, com HTTPS, manifesto e cache versio
 
 ## Entrega e testes
 
-Rode `npm test` e `npm run build`, acrescente testes de adaptador/migração/regras de segurança e confira 390×844, 768×1024 e 1366×900. Verifique questões em duplas, simulados sem repetição, banco de erros, notas, revisão, evidências, histórico, exportação/importação, falha de armazenamento e manutenção do modo local. Documente o que foi realmente executado.
+Rode `npm test` e `npm run build`, acrescente testes de adaptador/migração/regras de segurança e confira 390×844, 768×1024 e 1366×900. Verifique rodadas de quatro na aprendizagem (rascunhos legados em duplas devem continuar recuperáveis), simulados sem repetição, banco de erros, notas, revisão, evidências, histórico, exportação/importação, falha de armazenamento e manutenção do modo local. Documente o que foi realmente executado.
 
 Atualize `CODEX.md` a cada entrega com objetivo, arquivos, decisões, esquema, migração, testes, resultado e pendências. Encerre com o que funciona, o que exige configuração e os comandos exatos para continuar. Não declare Firebase ou Cloudflare publicados sem confirmação do serviço.
+
+
+Atualização v1.7: preservar o catálogo ativo de290 pontos/3200itens, os156itens legados e snapshots históricos, tipos de evento rubric/gap/audit/sim-evaluation, reserva de inéditas e referências reais. Não substituir a autoavaliação por IA silenciosamente. Pesquisador online e análise semântica exigem fontes, custos/limites transparentes e chaves somente no backend.

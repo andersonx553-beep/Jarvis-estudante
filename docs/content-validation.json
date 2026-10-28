@@ -1,0 +1,24 @@
+{
+  "lessons": 290,
+  "questions": 3200,
+  "disciplines": {
+    "prev": 1800,
+    "const": 320,
+    "adm": 320,
+    "port": 360,
+    "rlm": 120,
+    "info": 160,
+    "etica": 120
+  },
+  "modes": {
+    "treino": 1600,
+    "reserva": 800,
+    "fixacao": 800
+  },
+  "realReferences": 360,
+  "legacyLessonsPreserved": 39,
+  "legacyQuestionsPreserved": 156,
+  "structuralChecks": "passed",
+  "independentLegalReview": false,
+  "generatedText": false
+}

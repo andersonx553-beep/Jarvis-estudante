@@ -1,0 +1,23 @@
+name: Validar conteúdo e aplicativo
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Compilar e conferir assets editoriais
+        run: |
+          python3 tools/compile_content.py
+          git diff --exit-code -- content.js docs/content-validation.json
+      - name: Testes de persistência e método
+        run: npm test
+      - name: Gerar site e HTML independente
+        run: npm run build
