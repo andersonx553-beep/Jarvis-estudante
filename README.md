@@ -54,7 +54,7 @@ LocalStorage tem limites e pode ser apagado pelo navegador. Falhas de gravação
 
 ## Hospedagem e continuidade
 
-A pasta dist é estática e compatível com hospedagem HTTPS. A navegação usa hash. O service worker só armazena arquivos públicos. Respostas/notas são enviadas ao Firestore apenas no espaço da conta conectado. GitHubPages não está automaticamente habilitado.
+A pasta dist é estática e compatível com hospedagem HTTPS. A navegação usa hash. O service worker só armazena arquivos públicos. Respostas/notas são enviadas ao Firestore apenas no espaço da conta conectado. GitHub Pages existente usa o workflow .github/workflows/pages.yml para testar, compilar e publicar dist/; consulte docs/FIREBASE.md. O resultado de cada execução precisa ser verificado.
 
 Leia AGENTS.md e a atualização vigente no começo de CODEX.md. Veja docs/FIREBASE.md para ativação, regras, comandos, transferência do progresso e limites. PROMPT_CODEX_BACKEND.md registra o contrato de preservação para próximas evoluções. Não copiar a identidade .openai da demonstração para outro projeto.
 

@@ -59,3 +59,13 @@ LocalStorage ainda tem quota e depende do navegador; exporte backups. Evite sess
 ## Correção do carregamento v1.8.1
 
 O erro `Failed to fetch dynamically imported module ...gstatic.com/firebasejs/...` ocorre antes das consultas ao Firestore. O SDK agora é autocontido no cliente e também no HTML independente; o build rejeita imports externos remanescentes. Não é necessário contratar domínio ou mudar para Cloudflare para esta correção. Atualize o app publicado (Ctrl+F5 se houver versão antiga em cache), sem apagar os dados do navegador. A publicação das regras foi relatada pelo proprietário, mas a sincronização real ainda precisa ser confirmada na conta. Os endpoints das APIs Firebase continuam precisando de conectividade.
+
+## GitHub Pages
+
+O usuário confirmou o endereço existente https://andersonx553-beep.github.io/Jarvis-estudante/ . Em28/10/2026, a leitura HTTP mostrou index antigo (Last-Modified00:17:49UTC) e firebase-client.js404. Publicar a raiz do código-fonte não substitui o build npm, que incorpora o SDK.
+
+O workflow .github/workflows/pages.yml gera dist/, testa a distribuição e publica pelo mecanismo oficial de artefatos do GitHub Pages, sem token pessoal ou credencial Firebase. Executa em push de runtime para main e manualmente em Actions. Usa o ambiente github-pages; não publica PRs. Somente o job de deploy tem pages:write/id-token:write. A publicação não altera as regras do Firestore.
+
+Em Settings → Pages → Source, prefira GitHub Actions para evitar publicação da raiz não compilada. Se a origem existente apontar a outra branch ou houver proteção de ambiente incompatível, o proprietário precisa ajustar essa configuração; a integração GitHub conectada não possui administração do repositório. Não desabilitar proteções para contornar um erro. Confira o resultado da execução antes de afirmar publicação.
+
+No Firebase Authentication → Configurações → Domínios autorizados, confira `andersonx553-beep.github.io` (somente hostname, sem https ou /Jarvis-estudante/). O progresso salvo no endereço Sites ou em arquivo não migra sozinho para GitHub Pages; exporte o backup na origem e importe no espaço correto do destino, ou sincronize pela mesma conta após validar o funcionamento. Não apagar dados antigos.
